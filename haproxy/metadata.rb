@@ -1,4 +1,4 @@
-maintainer        "One Cloud System, Inc."
+maintainer        "One Cloud Systems, Inc."
 maintainer_email  "mieke@onecloussys.com"
 license           "Apache 2.0"
 description       "Installs and configures haproxy"
