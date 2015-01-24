@@ -8,4 +8,4 @@ License and Author
 
 Author:: Mieke Mocke (<mieke@onecloudsys.com>)
 
-Copyright:: 2015 One Clous Systems, Inc
+Copyright:: 2015 One Cloud Systems, Inc
