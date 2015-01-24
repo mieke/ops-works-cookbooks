@@ -1,4 +1,4 @@
-cription
+Description
 ===========
 
 Installs haproxy and prepares the configuration location.
