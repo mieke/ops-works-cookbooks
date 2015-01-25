@@ -1,3 +1,4 @@
+name              "haproxy"
 maintainer        "One Cloud Systems, Inc."
 maintainer_email  "mieke@onecloudsys.com"
 license           "Apache 2.0"
