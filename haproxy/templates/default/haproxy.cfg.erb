@@ -28,21 +28,4 @@ defaults
   stats auth <%= node[:haproxy][:stats_user] %>:<%= node[:haproxy][:stats_password] %>
   stats uri <%= node[:haproxy][:stats_url] %>
   <% end -%>
-
-frontend http
-  bind *:80
-  mode http
-
-  acl app1 path_end -i /app1
-  acl app2 path_end -i /app2 
-
-use_backend srvs_app1 if app1 
-use_backend srvs_app2 if app2 
-
-backend srvs_app1 #backend that lists your servers. Use a balancing algorithm as per your need. 
-   balance roundrobin 
-   server host1 php-app1:80
-   
-backend srvs_app2 #backend that lists your servers. Use a balancing algorithm as per your need. 
-   balance roundrobin 
-   server host2 php-app2:80
+  
