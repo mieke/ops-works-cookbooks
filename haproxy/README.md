@@ -15,6 +15,9 @@ Tested on Amazon Linux 2014.09.
 Attributes
 ==========
 
+Recipes
+=======
+
 License and Author
 ==================
 
