@@ -59,16 +59,16 @@ frontend https
 
 backend srvs_app1 #backend that lists your servers. Use a balancing algorithm as per your need. 
    balance roundrobin 
-   server host1 ALPHA-API-ELB-1138915267.us-east-1.elb.amazonaws.com:80
+   server host1 ec2-54-149-91-232.us-west-2.compute.amazonaws.com:80
 
 backend srvs_app1_https #backend that lists your servers. Use a balancing algorithm as per your need. 
    balance roundrobin 
-   server host1 ALPHA-API-ELB-1138915267.us-east-1.elb.amazonaws.com:443
+   server host1 ec2-54-149-91-232.us-west-2.compute.amazonaws.com:443
 
 backend srvs_app2 #backend that lists your servers. Use a balancing algorithm as per your need. 
    balance roundrobin 
-   server host1 ALPHA-COLLECTIONS-ELB-1292623538.us-east-1.elb.amazonaws.com:80
+   server host1 ec2-54-149-117-33.us-west-2.compute.amazonaws.com:80
 
 backend srvs_app2_https #backend that lists your servers. Use a balancing algorithm as per your need. 
    balance roundrobin 
-   server host1 ALPHA-COLLECTIONS-ELB-1292623538.us-east-1.elb.amazonaws.com:443
+   server host1 ec2-54-149-117-33.us-west-2.compute.amazonaws.com:443
