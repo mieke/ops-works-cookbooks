@@ -54,7 +54,11 @@ default[:haproxy][:maxcon_factor_static_ssl] = 15
 
 default[:haproxy][:balance] = 'roundrobin'
 
-#include_attribute "haproxy::customize"
+# include_attribute "haproxy::customize"
 default[:haproxy][:enable_stats] = true
 default[:haproxy][:stats_user] = 'opsworks'
 default[:haproxy][:stats_password] = 'mieke_test'
+
+# application environment attribute
+default[:haproxy][:server1] = 'ec2-54-149-91-232.us-west-2.compute.amazonaws.com'
+default[:haproxy][:server2] = 'ec2-54-149-117-33.us-west-2.compute.amazonaws.com'
