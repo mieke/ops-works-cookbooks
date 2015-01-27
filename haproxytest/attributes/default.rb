@@ -60,5 +60,19 @@ default[:haproxy][:stats_user] = 'opsworks'
 default[:haproxy][:stats_password] = 'mieke_test'
 
 # application environment attribute
-default[:haproxy][:server1] = 'ec2-54-149-91-232.us-west-2.compute.amazonaws.com'
-default[:haproxy][:server2] = 'ec2-54-149-117-33.us-west-2.compute.amazonaws.com'
+#default[:haproxy][:server1] = 'ec2-54-149-91-232.us-west-2.compute.amazonaws.com'
+#default[:haproxy][:server2] = 'ec2-54-149-117-33.us-west-2.compute.amazonaws.com'
+
+default[:haproxy][:environment]='prod'
+#ALPHA
+default[:haproxy][:alpha_server1] = 'www.google.com'
+default[:haproxy][:alpha_server2] = 'www.bing.com'
+
+#BETA
+default[:haproxy][:beta_server1] = 'www.yahoo.com'
+default[:haproxy][:beta_server2] = 'www.amazon.com'
+
+#PROD
+default[:haproxy][:prod_server1] = 'www.apple.com'
+default[:haproxy][:prod_server2] = 'www.truecar.com'
+
