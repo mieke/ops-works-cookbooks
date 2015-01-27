@@ -5,5 +5,6 @@ maintainer       "OneCloud Systems"
 license          "Apache 2.0"
 version          "1.0.0"
 
-recipe "haproxytest","Install and configure a HAProxy instance"
-recipe "haproxytest::runme", "reconfigure and restart HAProxy"
+#recipe "haproxytest","Install and configure a HAProxy instance"
+recipe "haproxytest::alpha_config", "reconfigure and restart HAProxy"
+recipe "haproxytest::beta_config", "reconfigure and restart HAProxy"
