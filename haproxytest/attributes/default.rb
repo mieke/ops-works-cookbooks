@@ -73,6 +73,6 @@ default[:haproxy][:beta_server1] = 'www.yahoo.com'
 default[:haproxy][:beta_server2] = 'www.amazon.com'
 
 #PROD
-default[:haproxy][:prod_server1] = 'www.apple.com'
+default[:haproxy][:prod_server1] = 'www.bestbuys.com'
 default[:haproxy][:prod_server2] = 'www.truecar.com'
 
