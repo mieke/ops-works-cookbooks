@@ -57,6 +57,67 @@ frontend https
   use_backend srvs_app2_https if app2 
   default_backend srvs_app1_https
 
+
+<% if node[:haproxy][:environment] == "alpha" %>       
+    backend srvs_app1 #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:alpha_server1] %>:80
+    
+    backend srvs_app1_https #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:alpha_server1] %>:443
+    
+    backend srvs_app2 #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:alpha_server2] %>:80
+    
+    backend srvs_app2_https #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:alpha_server2] %>:443
+       
+<% elsif node[:haproxy][:environment] == "beta" %>   
+    backend srvs_app1 #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:beta_server1] %>:80
+    
+    backend srvs_app1_https #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:beta_server1] %>:443
+    
+    backend srvs_app2 #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:betaa_server2] %>:80
+    
+    backend srvs_app2_https #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:beta_server2] %>:443
+
+<% else %> 
+    backend srvs_app1 #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:prod_server1] %>:80
+    
+    backend srvs_app1_https #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:prod_server1] %>:443
+    
+    backend srvs_app2 #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:prod_server2] %>:80
+    
+    backend srvs_app2_https #backend that lists your servers. Use a balancing algorithm as per your need. 
+       balance roundrobin 
+       server host1 <%= node[:haproxy][:prod_server2] %>:443
+
+<% end %>
+
+
+
+
+
+
+
+
 backend srvs_app1 #backend that lists your servers. Use a balancing algorithm as per your need. 
    balance roundrobin 
    server host1 <%= node[:haproxy][:server1] %>:80
