@@ -17,3 +17,4 @@ end
 execute "echo 'checking if HAProxy is not running - if so start it'" do
   not_if "pgrep haproxy"
   notifies :start, "service[haproxy]"
+end
