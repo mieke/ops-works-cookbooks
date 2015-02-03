@@ -1,1 +1,1 @@
-default[:mariadb-tokudb-engine_version] = 5.5
+default[:mariadb_version] = 10.0.16
