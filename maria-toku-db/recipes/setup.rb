@@ -9,7 +9,7 @@
 #  end
 #end
 
-apt_package "mariadb-tokudb-engine-5.5" do
+apt_package "mariadb-tokudb-engine-1.0" do
   action :install
 end
 
