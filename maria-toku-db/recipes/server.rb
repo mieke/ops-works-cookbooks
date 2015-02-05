@@ -8,5 +8,7 @@
 #end
 
 package 'mariadb-server' do
+  
+  # 'install' is the package resource's default action so it could skipped
   action :install
 end
