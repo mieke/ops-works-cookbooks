@@ -11,4 +11,4 @@ supports 'centos'
 supports 'debian'
 supports 'ubuntu'
 
-#depends 'apt',              '~> 2.0'
+depends 'apt',              '~> 2.0'
