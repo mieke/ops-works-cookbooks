@@ -33,8 +33,8 @@ include_recipe 'tar'
 tar_extract node['tokudb']['url'] do
   target_dir node['tokudb']['install_dir']
   creates "#{node['tokudb']['install_dir']}/README-TOKUDB"
-  group node['tokudb']['group']
-  user node['tokudb']['user']
+  #group node['tokudb']['group']
+  #user node['tokudb']['user']
   tar_flags ['--strip-components=1']
 end
 
