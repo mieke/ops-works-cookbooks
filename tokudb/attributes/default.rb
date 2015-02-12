@@ -29,7 +29,8 @@ default['tokudb']['binlog_format'] = 'ROW'
 default['tokudb']['expire_logs_days'] = '4'
 default['tokudb']['max_binlog_size'] = '1G'
 default['tokudb']['sync_binlog'] = '0'
-default['tokudb']['relay-log'] = 'ip-10-218-3-215-relay-bin'
+#machine specific name get injected here
+default['tokudb']['relay-log'] = 'node[:opsworks][:instance][:hostname]-relay-bin'
 
 default['tokudb']['thread_pool_size'] = '500'
 default['tokudb']['transaction_isolation'] = 'READ-COMMITTED'
