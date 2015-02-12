@@ -2,7 +2,22 @@
 #default['tokudb']['url'] = 'http://www.tokutek.com/tokudb-for-mysql/tokudb-community-edition-download/?file=mysql-5.5.41-tokudb-7.5.5-linux-x86_64.tar.gz'
 default['tokudb']['url'] = 'https://s3-us-west-2.amazonaws.com/mieke-tars/mysql-5.5.41-tokudb-7.5.5-linux-x86_64.tar.gz'
 default['tokudb']['install_dir'] = '/opt/tokutek/mysql'
-default['tokudb']['data_dir'] = '/var/lib/mysql'
+default['tokudb']['data_dir'] = '/mysqldata/datafiles'
 default['tokudb']['bin_log_path'] = '/var/lib/mysql/binlog/mysql-bin'
 default['tokudb']['user'] = 'mysql'
 default['tokudb']['group'] = 'mysql'
+
+default['tokudb']['slow-query-log'] = '1'
+default['tokudb']['slow-query-log-file'] = '/mnt/log/mysql/log-slow-queries.log'
+default['tokudb']['long_query_time'] = '2'
+default['tokudb']['max_connections'] = '10000'
+default['tokudb']['max_connect_errors'] = '10000'
+
+default['tokudb']['open-files-limit'] = '50005''
+default['tokudb']['table-open-cache'] = '5000'
+default['tokudb']['character-set-client-handshake'] = 'false'
+default['tokudb']['character_set_filesystem'] = 'utf8'
+default['tokudb']['character_set_server'] = 'utf8'
+
+default['tokudb']['query_cache_limit'] = '1M'
+default['tokudb']['query_cache_size'] = '0'
