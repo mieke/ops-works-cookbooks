@@ -21,3 +21,21 @@ default['tokudb']['character_set_server'] = 'utf8'
 
 default['tokudb']['query_cache_limit'] = '1M'
 default['tokudb']['query_cache_size'] = '0'
+
+default['tokudb']['log_error'] = '/mnt/log/mysql/error.log'
+default['tokudb']['server-id'] = '53'
+default['tokudb']['log_bin'] = '/mnt/log/mysql/mysql-bin.log'
+default['tokudb']['binlog_format'] = 'ROW'
+default['tokudb']['expire_logs_days'] = '4'
+default['tokudb']['max_binlog_size'] = '1G'
+default['tokudb']['sync_binlog'] = '0'
+default['tokudb']['relay-log'] = 'ip-10-218-3-215-relay-bin'
+
+default['tokudb']['thread_pool_size'] = '500'
+default['tokudb']['transaction_isolation'] = 'READ-COMMITTED'
+default['tokudb']['event_scheduler'] = 'READ-OFF'
+default['tokudb']['read_rnd_buffer_size'] = '32M'
+default['tokudb']['max_heap_table_size'] = '128M'
+default['tokudb']['tmp_table_size'] = '128M'
+
+
