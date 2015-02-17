@@ -38,15 +38,15 @@ socket		= /tmp/mysql.sock
 skip-external-locking
 key_buffer_size = 256M
 max_allowed_packet = 1M
-table_open_cache = 256
-sort_buffer_size = 1M
-read_buffer_size = 1M
-read_rnd_buffer_size = 4M
+table_open_cache = 512
+sort_buffer_size = 2M
+read_buffer_size = 2M
+read_rnd_buffer_size = 8M
 myisam_sort_buffer_size = 64M
 thread_cache_size = 8
-query_cache_size= 16M
+query_cache_size = <%= node['tokudb']['query_cache_size']%>
 # Try number of CPU's*2 for thread_concurrency
-thread_concurrency = 4
+thread_concurrency = 8
 character-set-server=utf8
 collation-server=utf8_general_ci
 
@@ -129,7 +129,7 @@ server-id	= 1
 #master-port     =  <port>
 #
 # binary logging - not required for slaves, but recommended
-#log-bin=mysql-bin
+log-bin=<%= node['tokudb']['bin_log_path']%>
 
 # Uncomment the following if you are using InnoDB tables
 #innodb_data_home_dir = /usr/local/mysql/data
