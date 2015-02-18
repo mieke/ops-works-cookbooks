@@ -37,7 +37,7 @@ port		= 3306
 socket		= /tmp/mysql.sock
 log-error = <%= node['tokudb']['log_error']%>
 slow-query-log-file = <%= node['tokudb']['slow-query-log-file']%>
-log_bin  = <%= node['tokudb']['slow-log_bin-log-file']%>
+log_bin  = <%= node['tokudb']['log_bin']%>
 expire_logs_days = <%= node['tokudb']['expire_logs_days']%>
 max_binlog_size = <%= node['tokudb']['max_binlog_size']%>
 
