@@ -35,6 +35,9 @@ basedir = <%= node['tokudb']['install_dir']%>
 user = <%= node['tokudb']['user']%>
 port		= 3306
 socket		= /tmp/mysql.sock
+log-error = <%= node['tokudb']['log_error']%>
+
+
 skip-external-locking
 key_buffer_size = 256M
 max_allowed_packet = 1M
