@@ -38,7 +38,11 @@ tar_extract node['tokudb']['url'] do
   tar_flags ['--strip-components=1']
 end
 
-template "/etc/my.cnf" do
+#template "/etc/my.cnf" do
+  #source "my.cnf.erb"
+#end
+
+template "/etc/mysql/my.cnf" do
   source "my.cnf.erb"
 end
 
