@@ -13,7 +13,7 @@ default['tokudb']['long_query_time'] = '2'
 default['tokudb']['max_connections'] = '10000'
 default['tokudb']['max_connect_errors'] = '10000'
 
-default['tokudb']['open-files-limit'] = '50005''
+default['tokudb']['open-files-limit'] = '50005'
 default['tokudb']['table-open-cache'] = '5000'
 default['tokudb']['character-set-client-handshake'] = 'false'
 default['tokudb']['character_set_filesystem'] = 'utf8'
