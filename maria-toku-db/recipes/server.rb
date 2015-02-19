@@ -3,7 +3,7 @@
 #----
 #include_recipe "apt"
 
-apt_package "mariadb-server" do
+apt_package "mariadb-server-10.0 " do
   action :install
 end
 
