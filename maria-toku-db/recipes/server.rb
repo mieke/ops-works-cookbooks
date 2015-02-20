@@ -4,6 +4,7 @@
 #include_recipe "apt"
 
 apt_package "mariadb-server" do
+  #version "10.0"
   action :install
 end
 

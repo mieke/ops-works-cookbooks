@@ -47,6 +47,7 @@ template "/etc/mysql/my.cnf" do
 end
 
 directory "#{node['tokudb']['data_dir']}/binlog" do
+#directory "#{node['tokudb']['bin_log_path']}" do
   owner node['tokudb']['user']
   group node['tokudb']['group']
   recursive true
