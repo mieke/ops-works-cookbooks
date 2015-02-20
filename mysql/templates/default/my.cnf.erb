@@ -1,0 +1,192 @@
+# The MySQL database server configuration file.
+#
+# You can copy this to one of:
+# - "/etc/mysql/my.cnf" to set global options,
+# - "~/.my.cnf" to set user-specific options.
+#
+# One can use all long options that the program supports.
+# Run program with --help to get a list of available options and with
+# --print-defaults to see which it would actually understand and use.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+# This will be passed to all mysql clients
+# It has been reported that passwords should be enclosed with ticks/quotes
+# escpecially if they contain "#" chars...
+# Remember to edit /etc/mysql/debian.cnf when changing the socket location.
+
+
+# The following options will be passed to all MariaDB clients
+[client]
+port		= 3306
+socket		= /tmp/mysql.sock
+# Use loose so that mysqlbinlog doesn't complain
+loose-default-character-set=utf8
+
+[client]
+port        = <%= node['mysql']['port']%>
+socket      = <%= node['mysql']['socket']%>
+
+
+
+# Here is entries for some specific programs
+# The following values assume you have at least 32M ram
+# This was formally known as [safe_mysqld]. Both versions are currently parsed.
+[mysqld_safe]
+socket      = <%= node['mysql']['socket']%>
+nice        = 0
+
+[mysqld]
+#tokudb stuff
+#tokudb_create_index_online=ON
+#tokudb_cache_size      = 50000000000
+skip-innodb
+default_storage_engine = TokuDB
+datadir = <%= node['mysql']['tokudb_data_dir']%>
+basedir = <%= node['mysql']['tokudb_install_dir']%>
+
+
+open-files-limit = <%= node['mysql']['tunable']['open_files_limit']%>
+table-open-cache = <%= node['mysql']['tunable']['table_open_cache']%>
+character-set-client-handshake = <%= node['mysql']['tunable']['skip_character_set_client_handshake']%>
+character-set-filesystem = <%= node['mysql']['tunable']['character_set_filesystem']%>
+character-set-server = <%= node['mysql']['tunable']['character_set_server']%>
+
+#slow_query_log_timestamp_always=true
+slow-query-log-file = <%= node['mysql']['tunable']['slow_query_log_file']%>
+slow-query-log = <%= node['mysql']['tunable']['slow_query_log']%>
+long-query-time = <%= node['mysql']['tunable']['long_query_time']%>
+userstat=1
+bulk-insert-buffer = <%= node['mysql']['tunable']['bulk_insert_buffer_size']%>
+innodb-max-dirty-pages-pct = 99
+table-open-cache = <%= node['mysql']['tunable']['table_open_cache']%> 
+#skip-name-resolve=ON
+
+max-connections = <%= node['mysql']['tunable']['max_connections']%>
+max-connect-errors = <%= node['mysql']['tunable']['max_connect_errors']%>
+innodb-buffer-pool-size = <%= node['mysql']['tunable']['innodb_buffer_pool_size']%>
+
+#
+#innodb_force_recovery = 4
+#
+# * Basic Settings
+#
+#
+# * IMPORTANT
+#   If you make changes to these settings and your system uses apparmor, you
+#   may
+#   also need to also adjust /etc/apparmor.d/usr.sbin.mysqld.
+#
+user        = <%= node['mysql']['user']%>
+socket      = <%= node['mysql']['socket']%>
+port        = <%= node['mysql']['port']%>
+basedir     = <%= node['mysql']['basedir']%>
+tmpdir      = <%= node['mysql']['tmpdir']%>
+skip-external-locking
+datadir     = <%= node['mysql']['datadir']%>
+#
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+#bind-address       = 127.0.0.1
+#
+# * Fine Tuning
+#
+key-buffer      = <%= node['mysql']['tunable']['key_buffer']%>
+max-allowed-packet  = <%= node['mysql']['tunable']['max_allowed_packet']%>
+thread-stack        = <%= node['mysql']['tunable']['thread_stack']%>
+thread-cache-size   = <%= node['mysql']['tunable']['thread_cache_size']%>
+
+# This replaces the startup script and checks MyISAM tables if needed
+# the first time they are touched
+myisam-recover         = BACKUP
+#max_connections        = 100
+#table_cache            = 64
+#thread_concurrency     = 10
+#
+# * Query Cache Configuration
+#
+query-cache-limit   = <%= node['mysql']['tunable']['query_cache_limit']%>
+query-cache-size   = <%= node['mysql']['tunable']['query_cache_size']%>
+#
+# * Logging and Replication
+#
+# Both location gets rotated by the cronjob.
+# Be aware that this log type is a performance killer.
+# As of 5.1 you can enable the log at runtime!
+#general_log_file        = /var/log/mysql/mysql.log
+#general_log             = 1
+log-error                = <%= node['mysql']['log_error']%>
+
+
+# The following can be used as easy to replay backup logs or for replication.
+# note: if you are setting up a replication slave, see README.Debian about
+#       other settings you may need to change.
+
+server-id       = <%= node['mysql']['tunable']['server_id']%> 
+log-bin         = <%= node['mysql']['tunable']['log_bin']%>
+binlog-format 	= <%= node['mysql']['tunable']['binlog_format']%>
+expire-logs-days = <%= node['mysql']['tunable']['expire_logs_days']%>
+max-binlog-size	= <%= node['mysql']['tunable']['max_binlog_size']%>
+sync-binlog 	= <%= node['mysql']['tunable']['sync_binlog']%>
+
+#binlog-do-db       = include_database_name
+#binlog-ignore-db   = include_database_name
+
+
+thread-pool-size = <%= node['mysql']['tunable']['thread_pool_size']%>
+transaction-isolation = <%= node['mysql']['tunable']['transaction_isolation']%>
+event-scheduler = <%= node['mysql']['tunable']['event_schedulers']%>
+#
+# * InnoDB
+#
+# InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.
+# Read the manual for more InnoDB related options. There are many!
+#
+# * Security Features
+#
+# Read the manual, too, if you want chroot!
+# chroot = /var/lib/mysql/
+#
+# For generating SSL certificates I recommend the OpenSSL GUI "tinyca".
+#
+# ssl-ca=/etc/mysql/cacert.pem
+# ssl-cert=/etc/mysql/server-cert.pem
+# ssl-key=/etc/mysql/server-key.pem
+innodb-buffer-pool_size 	= <%= node['mysql']['tunable']['innodb_buffer_pool_size']%>
+innodb-flush-method			= <%= node['mysql']['tunable']['innodb_flush_method']%>
+innodb-log-file-size		= <%= node['mysql']['tunable']['innodb_log_file_size']%>
+innodb-log-buffer_size		= <%= node['mysql']['tunable']['innodb_log_buffer_size']%>
+innodb-flush-log-at-trx_commit = <%= node['mysql']['tunable']['innodb_flush_log_at_trx_commit']%>
+innodb-thread-concurrency 	= <%= node['mysql']['tunable']['innodb_thread_concurrency']%>
+innodb-io-capacity			= <%= node['mysql']['tunable']['innodb_io_capacity']%>
+innodb-write-io-threads		= <%= node['mysql']['tunable']['innodb_write_io_threads']%>
+innodb-read-io-threads		= <%= node['mysql']['tunable']['innodb_read_io_threads']%>
+
+
+#for orderbys on large tables?
+read-rnd-buffer-size = <%= node['mysql']['tunable']['read_rnd_buffer_size']%>
+
+#this is for fasti warm-up after a restart or crash
+#innodb_buffer_pool_restore_at_startup=120
+#hardened replication recovery
+#innodb_overwrite_relay_log_info=true
+#innodb_recovery_update_relay_log=true
+#for memory engine
+max-heap-table-size = <%= node['mysql']['tunable']['max_heap_table_size']%>
+tmp-table-size 		= <%= node['mysql']['tunable']['tmp_table_size']%>
+[mysqldump]
+quick
+quote-names
+max-allowed-packet  = <%= node['mysql']['tunable']['max_allowed_packet']%>
+
+[mysql]
+#no-auto-rehash # faster start of mysql but no tab completition
+
+[isamchk]
+key-buffer      = <%= node['mysql']['tunable']['key_buffer_size']%>
+
+#
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#
