@@ -4,7 +4,7 @@
   #self.msg("Monitis JMX Agent already installed")
 #else
 
-service 'tomcat7' do
+service 'tomcat' do
   supports :restart => true, :status => true, :reload => true
   action :nothing
 end
@@ -14,5 +14,5 @@ remote_file "Download mon_jmx_agent.war" do
   source "#{node['MONITIS']['JMX']['WAR']}"
   path "#{node['MONITIS']['JMX']['INSTALLDIR']}"
   backup false
-  notifies :restart, resources(:service => 'tomcat7'), :immediately
+  notifies :restart, resources(:service => 'tomcat'), :immediately
 end
