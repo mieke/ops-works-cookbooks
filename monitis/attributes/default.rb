@@ -18,6 +18,11 @@ default['MONITIS']['TARBALL_64'] = "MonitisLinuxAgent-64bit.tar.gz"
 default['MONITIS']['TARBALL_URL_32'] = "http://dashboard1.monitis.com/downloader?type=internalAgent&platform=linux32&version=v4_01_20"
 default['MONITIS']['TARBALL_URL_64'] = "http://dashboard1.monitis.com/downloader?type=internalAgent&platform=linux64&version=v4_01_20"
 
+
+# Monitis JMX Agent
+default['MONITIS']['JMX'['WAR'] = "https://s3-us-west-2.amazonaws.com/mieke-wars/mon_jmx_agent.war"
+default['MONITIS']['JMX'['INSTALLDIR'] = "/var/lib/tomcat7/webapps"
+
 # overrides on a platform-by-platform basis
 case platform
 when "debian","ubuntu"
