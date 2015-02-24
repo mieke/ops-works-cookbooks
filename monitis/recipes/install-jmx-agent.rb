@@ -8,5 +8,6 @@ else
 remote_file "Download mon_jmx_agent.war" do
   source "#{node['MONITIS']['JMX']['WAR']}"
   path "#{node['MONITIS']['JMX']['INSTALLDIR']}"
+  backup false
   notifies :restart, resources(:service => 'tomcat7'), :immediately
 end
