@@ -9,8 +9,8 @@
 
 # default attributes for all platforms
 default['MONITIS']['INSTALLDIR'] = "/usr/local"
-default['MONITIS']['USEREMAIL'] = "youremail@address.com"
-default['MONITIS']['PASSWORD'] = "PASSWORD"
+default['MONITIS']['USEREMAIL'] = "mieke@onecloudsys.com"
+default['MONITIS']['PASSWORD'] = "onecloud"
 default['MONITIS']['AGENTNAME'] = node[:hostname]
 
 default['MONITIS']['TARBALL_32'] = "MonitisLinuxAgent-32bit.tar.gz"
