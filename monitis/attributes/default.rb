@@ -20,7 +20,7 @@ default['MONITIS']['TARBALL_URL_64'] = "http://dashboard1.monitis.com/downloader
 
 
 # Monitis JMX Agent
-default['MONITIS']['JMX'['WAR'] = "https://s3-us-west-2.amazonaws.com/mieke-wars/mon_jmx_agent.war"
+default['MONITIS']['JMX']['WAR'] = "https://s3-us-west-2.amazonaws.com/mieke-wars/mon_jmx_agent.war"
 default['MONITIS']['JMX'['INSTALLDIR'] = "/var/lib/tomcat7/webapps"
 
 # overrides on a platform-by-platform basis
