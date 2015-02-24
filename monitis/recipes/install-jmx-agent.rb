@@ -14,5 +14,5 @@ remote_file "Download mon_jmx_agent.war" do
   source "#{node['MONITIS']['JMX']['WAR']}"
   path "#{node['MONITIS']['JMX']['INSTALLDIR']}"
   backup false
-  notifies :restart, resources(:service => 'tomcat'), :immediately
+  # notifies :restart, resources(:service => 'tomcat'), :immediately
 end
