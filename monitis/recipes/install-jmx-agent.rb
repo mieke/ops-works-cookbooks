@@ -10,7 +10,7 @@ else
 #end
 
 #Use the remote_file resource to transfer a file from a remote location using file specificity.
-remote_file "#{node['MONITIS']['JMX']['INSTALLDIR']}/mon_jmx_agent.war" do
+remote_file "#{node['MONITIS']['JMX']['INSTALLDIR']}/" do
   source "#{node['MONITIS']['JMX']['WAR']}"
   #owner 'root'
   #group 'root'
