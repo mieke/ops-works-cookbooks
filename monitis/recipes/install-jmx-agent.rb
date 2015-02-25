@@ -10,10 +10,11 @@ else
 #end
 
 #Use the remote_file resource to transfer a file from a remote location using file specificity.
-remote_file "Download mon_jmx_agent.war" do
+remote_file "#{node['MONITIS']['JMX']['INSTALLDIR']}" do
   source "#{node['MONITIS']['JMX']['WAR']}"
-  path "#{node['MONITIS']['JMX']['INSTALLDIR']}"
-  backup false
+  #owner 'root'
+  #group 'root'
+  #mode '755'
   # notifies :restart, resources(:service => 'tomcat'), :immediately
 end
 
