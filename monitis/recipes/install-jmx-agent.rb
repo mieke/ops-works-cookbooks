@@ -18,6 +18,6 @@ remote_file "/tmp/mon_jmx_agent.war" do
   #group 'root'
   #mode '755'
   # notifies :restart, resources(:service => 'tomcat'), :immediately
-#end
+end
 
 end
